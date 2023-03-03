@@ -5,7 +5,6 @@ public class MagicBox<T> {
     private T[] items;
     Random random = new Random();
 
-
     public MagicBox(int max) {
         this.items = (T[]) new Object[max];
     }
@@ -29,12 +28,11 @@ public class MagicBox<T> {
     public T pick() {
         int i = 0;
         for (T cell : items) { //Для определения незаполненности коробки проверьте массив items на наличие null
-            i++;
             if (cell == null) {
                 throw new RuntimeException("Коробка не полна, осталось заполнить еще:   " + (items.length - i) + " ячеек");
                 //Если коробка не полна, то он выкидывает
-
             }
+            i++;
         }
         return items[getRandomInt()];
     }
@@ -43,7 +41,6 @@ public class MagicBox<T> {
     //Для выбора случайного элемента выберите случайное число-индекс массива
     // и верните его содержимое
     // и возвращает его из метода
-
     // джава подберёт случайное число от 0 до ЧИСЛО невключительно
     public int getRandomInt() {
         int randomInt = random.nextInt(items.length);
